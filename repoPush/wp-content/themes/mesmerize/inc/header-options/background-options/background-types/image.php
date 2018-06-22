@@ -96,7 +96,7 @@ function mesmerize_header_background_mobile_image()
                     background-image: url(<?php echo esc_url_raw(  $bgImageMobile) ?>) !important;
                 }}
             <?php endif; ?>
-            /*komentarz testowy mk */
+            /*komentarz testowy mk*/
         </style>
     <?php
     endif;
