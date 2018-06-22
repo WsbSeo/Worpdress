@@ -128,7 +128,7 @@ function liveUpdate(setting, callback) {
         }
 
 
-        position = position + " " + offset + "px";
+        position = position + "px" + offset + "px";
 
         styleHolder.text("" +
             "@media screen and (max-width: 767px) {\n" +
