@@ -1,16 +1,11 @@
 <?php
-
-
 add_filter('mesmerize_header_background_types', 'mesmerize_header_background_image');
-
 function mesmerize_header_background_image($types)
 {
     $types['image'] = esc_html__('Image', 'mesmerize');
     
     return $types;
 }
-
-
 add_filter('mesmerize_override_with_thumbnail_image', function ($value) {
     
     global $post;
@@ -23,7 +18,6 @@ add_filter('mesmerize_override_with_thumbnail_image', function ($value) {
     
     return $value;
 });
-
 add_filter('mesmerize_override_with_thumbnail_image', function ($value) {
     
     global $post;
@@ -36,8 +30,6 @@ add_filter('mesmerize_override_with_thumbnail_image', function ($value) {
     
     return $value;
 });
-
-
 add_filter("mesmerize_header_background_atts", function ($attrs, $bg_type, $inner) {
     if ($bg_type == 'image') {
         $prefix        = $inner ? "inner_header" : "header";
@@ -74,8 +66,6 @@ add_filter("mesmerize_header_background_atts", function ($attrs, $bg_type, $inne
     
     return $attrs;
 }, 1, 3);
-
-
 function mesmerize_header_background_mobile_image()
 {
     $inner                  = mesmerize_is_inner(true);
@@ -85,7 +75,7 @@ function mesmerize_header_background_mobile_image()
     $bgMobilePosition       = get_theme_mod($prefix . "_bg_position_mobile", '50%');
     $bgMobilePositionOffset = get_theme_mod($prefix . "_bg_position_mobile_offset", '0');
     
-    $bgMobilePosition = $bgMobilePosition . " " . $bgMobilePositionOffset . " px";
+    $bgMobilePosition = $bgMobilePosition . "px" . " " . $bgMobilePositionOffset . "px";
     
     if ($bgType === "image"):
         ?>
@@ -97,27 +87,22 @@ function mesmerize_header_background_mobile_image()
             }
             }
         </style>
-<?php if($bgImageMobile): ?>
+            <?php if($bgImageMobile): ?>
         <style type="text/css" data-name="custom-mobile-image">
             /*Custom mobile image*/
-            
+
             @media screen and (max-width: 767px) {
                 .custom-mobile-image:not(.header-slide) {
                     background-image: url(<?php echo esc_url_raw(  $bgImageMobile) ?>) !important;
-                }
-
+                }}
             <?php endif; ?>
             
-
         </style>
     <?php
     endif;
 }
-
 add_action('wp_head', 'mesmerize_header_background_mobile_image');
-
 add_action("mesmerize_header_background_type_settings", 'mesmerize_header_background_type_image_settings', 1, 6);
-
 function mesmerize_header_background_type_image_settings($section, $prefix, $group, $inner, $priority)
 {
     $prefix  = $inner ? "inner_header" : "header";
