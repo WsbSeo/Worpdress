@@ -85,7 +85,7 @@ function mesmerize_header_background_mobile_image()
     $bgMobilePosition       = get_theme_mod($prefix . "_bg_position_mobile", '50%');
     $bgMobilePositionOffset = get_theme_mod($prefix . "_bg_position_mobile_offset", '0');
     
-    $bgMobilePosition = $bgMobilePosition . " " . $bgMobilePositionOffset . "px";
+    $bgMobilePosition = $bgMobilePosition . "px" . " " . $bgMobilePositionOffset . "px";
     
     if ($bgType === "image"):
         ?>
